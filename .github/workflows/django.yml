@@ -37,5 +37,5 @@ jobs:
       working-directory: ./api/
     - name: Run Tests
       run: |
-        poetry run manage.py test
+        poetry run python manage.py test
       working-directory: ./api/api/
