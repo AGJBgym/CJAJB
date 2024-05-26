@@ -32,7 +32,7 @@ jobs:
       name: Define a cache for the virtual environment based on the dependencies lock file
       with:
         path: ./api/.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
+        key: venv${{matrix.python-version}}-${{ hashFiles('poetry.lock') }}
     - name: Install the project dependencies
       run: poetry install
       working-directory: ./api/
