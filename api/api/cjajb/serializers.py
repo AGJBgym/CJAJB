@@ -1,5 +1,6 @@
 from cjajb.models.athlete import Athlete
 from cjajb.models.team import Team
+from cjajb.models.championship import Championship
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -26,4 +27,9 @@ class TeamSerializer(serializers.HyperlinkedModelSerializer):
 class AthleteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Athlete
+        fields = '__all__'
+        
+class ChampionshipSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Championship
         fields = '__all__'
