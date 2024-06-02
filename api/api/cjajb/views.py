@@ -48,3 +48,7 @@ class VenueViewSet(viewsets.ModelViewSet):
 class MeetingViewSet(viewsets.ModelViewSet):
     queryset = models.meeting.Meeting.objects.all()
     serializer_class = serializers.MeetingSerializer
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = models.category.Category.objects.all()
+    serializer_class = serializers.CategorySerializer
