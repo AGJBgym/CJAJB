@@ -1,5 +1,5 @@
 from cjajb import models
-from cjajb.serializers import TeamSerializer, UserSerializer, AthleteSerializer
+from cjajb.serializers import TeamSerializer, UserSerializer, AthleteSerializer, ChampionshipSerializer
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.shortcuts import render
@@ -30,3 +30,7 @@ class TeamViewSet(viewsets.ModelViewSet):
 class AthleteViewSet(viewsets.ModelViewSet):
     queryset = models.athlete.Athlete.objects.all()
     serializer_class = AthleteSerializer
+    
+class ChampionshipViewSet(viewsets.ModelViewSet):
+    queryset = models.championship.Championship.objects.all()
+    serializer_class = ChampionshipSerializer
