@@ -3,6 +3,7 @@ from cjajb.models.championship import Championship
 from cjajb.models.meeting import Meeting
 from cjajb.models.team import Team
 from cjajb.models.venue import Venue
+from cjajb.models.category import Category
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -52,4 +53,14 @@ class VenueSerializer(serializers.HyperlinkedModelSerializer):
 class MeetingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Meeting
+        fields = "__all__"
+
+
+class CategorySerializer(serializers.HyperlinkedModelSerializer):
+    athletes = serializers.HyperlinkedRelatedField(
+        many=True, read_only=True, view_name="athlete-detail"
+    )
+
+    class Meta:
+        model = Category
         fields = "__all__"
