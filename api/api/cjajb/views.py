@@ -1,13 +1,11 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User
-
-from knox.views import LoginView as KnoxLoginView
-from rest_framework import permissions
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from django.contrib.auth import login
-from rest_framework import viewsets
 from cjajb import models
-from cjajb.serializers import TeamSerializer, UserSerializer
+from cjajb.serializers import TeamSerializer, UserSerializer, AthleteSerializer
+from django.contrib.auth import login
+from django.contrib.auth.models import User
+from django.shortcuts import render
+from knox.views import LoginView as KnoxLoginView
+from rest_framework import permissions, viewsets
+from rest_framework.authtoken.serializers import AuthTokenSerializer
 
 # Create your views here.
 
@@ -28,3 +26,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = models.team.Team.objects.all()
     serializer_class = TeamSerializer
+    
+class AthleteViewSet(viewsets.ModelViewSet):
+    queryset = models.athlete.Athlete.objects.all()
+    serializer_class = AthleteSerializer

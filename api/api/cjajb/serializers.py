@@ -1,7 +1,8 @@
-from rest_framework import serializers
-from django.contrib.auth.models import User
-
+from cjajb.models.athlete import Athlete
 from cjajb.models.team import Team
+from django.contrib.auth.models import User
+from rest_framework import serializers
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -17,6 +18,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         ]
         
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
+    athletes = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name='athlete-detail')
     class Meta:
         model = Team
+        fields = '__all__'
+        
+class AthleteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Athlete
         fields = '__all__'
