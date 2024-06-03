@@ -49,6 +49,22 @@ class MeetingViewSet(viewsets.ModelViewSet):
     queryset = models.meeting.Meeting.objects.all()
     serializer_class = serializers.MeetingSerializer
 
+
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = models.category.Category.objects.all()
     serializer_class = serializers.CategorySerializer
+
+
+class CompetitionViewSet(viewsets.ModelViewSet):
+    queryset = models.competition.Competition.objects.all()
+    serializer_class = serializers.CompetitionSerializer
+
+
+class ScaleViewSet(viewsets.ModelViewSet):
+    queryset = models.scale.Scale.objects.all()
+    serializer_class = serializers.ScaleSerializer
+
+
+class DisciplineViewSet(viewsets.ModelViewSet):
+    queryset = models.discipline.Discipline.objects.all()
+    serializer_class = serializers.DisciplineSerializer
